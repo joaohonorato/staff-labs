@@ -37,3 +37,17 @@ func BenchmarkLoop(b *testing.B) {
 		math.Log(x)
 	}
 }
+
+// math.Log é assembly no amd64 e o compilador não elimina a chamada.
+// math.Sqrt é intrínseco (uma instrução SQRTSD) e pode ser eliminado.
+func BenchmarkDeadCodeSqrt(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		_ = math.Sqrt(x)
+	}
+}
+
+func BenchmarkSinkSqrt(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		sink = math.Sqrt(x)
+	}
+}

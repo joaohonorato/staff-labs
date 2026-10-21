@@ -4,3 +4,4 @@ target/
 *.test
 .idea/
 .vscode/
+dependency-reduced-pom.xml

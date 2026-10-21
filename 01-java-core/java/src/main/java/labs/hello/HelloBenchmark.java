@@ -50,4 +50,17 @@ public class HelloBenchmark {
     public void blackhole(Blackhole bh) {
         bh.consume(Math.log(x));
     }
+
+    // Math.log vira chamada a uma rotina nativa que o JIT não prova pura,
+    // então nem sempre é eliminada. Math.sqrt vira uma única instrução (sqrtsd)
+    // e o JIT sabe que ela não tem efeito colateral.
+    @Benchmark
+    public void deadCodeSqrt() {
+        Math.sqrt(x);
+    }
+
+    @Benchmark
+    public double returnedSqrt() {
+        return Math.sqrt(x);
+    }
 }

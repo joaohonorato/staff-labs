@@ -1,0 +1,6 @@
+target/
+*.jfr
+*.prof
+*.test
+.idea/
+.vscode/

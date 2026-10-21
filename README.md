@@ -5,7 +5,7 @@ cada um com seu `docker-compose.yml`: nada depende de JDK ou Go instalado na má
 
 | Módulo | Pasta | Status |
 |---|---|---|
-| 1 — Java Core | `01-java-core/` | em andamento |
+| 1 — Java Core | `01-java-core/` | em andamento: [Semana 1](01-java-core/semana-01.md) |
 
 Cada sessão: conceito (fonte primária) → lab Java → lab Go → resposta de 2 min
 (pergunta → falha → solução → trade-off). Cada módulo fecha com um ADR no `NOTES.md`.
